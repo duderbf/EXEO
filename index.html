@@ -10,6 +10,7 @@
       --accent: #0077cc;
       --bg: #f4f6f8;
       --text: #333;
+      --gradient: linear-gradient(135deg, #0A1F44, #0077cc);
     }
 
     body, html {
@@ -24,17 +25,25 @@
       position: fixed;
       top: 0;
       width: 100%;
-      background-color: var(--primary);
+      background: var(--gradient);
       color: white;
       padding: 15px 30px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.2);
       z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     .navbar h2 {
       margin: 0;
       font-size: 20px;
       letter-spacing: 0.5px;
+    }
+
+    .counter {
+      font-size: 14px;
+      opacity: 0.8;
     }
 
     .slide {
@@ -56,7 +65,7 @@
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       padding: 30px;
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto;
     }
 
@@ -66,6 +75,10 @@
 
     ul {
       padding-left: 20px;
+    }
+
+    li::marker {
+      color: var(--accent);
     }
 
     .nav {
@@ -91,11 +104,6 @@
       background-color: var(--accent);
     }
 
-    .counter {
-      font-size: 14px;
-      color: var(--text);
-    }
-
     @media (max-width: 768px) {
       .slide {
         padding: 80px 30px 30px;
@@ -114,6 +122,7 @@
 
   <div class="navbar">
     <h2>EXEO Interview Presentation</h2>
+    <span class="counter" id="counter">Slide 1 of 5</span>
   </div>
 
   <div class="slide active" id="slide1">
@@ -175,7 +184,6 @@
 
   <div class="nav">
     <button onclick="prevSlide()">◀ Prev</button>
-    <span class="counter" id="counter">Slide 1 of 5</span>
     <button onclick="nextSlide()">Next ▶</button>
   </div>
 
@@ -201,7 +209,6 @@
       showSlide(current);
     }
 
-    // Initialize
     showSlide(current);
   </script>
 
