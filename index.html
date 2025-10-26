@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>EXEO Interview Presentation</title>
+  <title>EXEO Interview Microsite</title>
   <style>
     :root {
       --primary: #0A1F44;
@@ -13,68 +13,49 @@
       --gradient: linear-gradient(135deg, #0A1F44, #0077cc);
     }
 
-    body, html {
+    body {
       margin: 0;
-      padding: 0;
       font-family: 'Segoe UI', 'Roboto', sans-serif;
       background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
     }
 
-    .navbar {
-      position: fixed;
-      top: 0;
-      width: 100%;
+    header {
       background: var(--gradient);
       color: white;
-      padding: 15px 30px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-      z-index: 1000;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      padding: 60px 30px;
+      text-align: center;
     }
 
-    .navbar h2 {
-      margin: 0;
-      font-size: 20px;
-      letter-spacing: 0.5px;
+    header h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
     }
 
-    .counter {
-      font-size: 14px;
-      opacity: 0.8;
+    header p {
+      font-size: 1.2em;
+      opacity: 0.9;
     }
 
-    .slide {
-      display: none;
-      padding: 120px 40px 60px;
-      box-sizing: border-box;
-      opacity: 0;
-      transition: opacity 0.6s ease;
-    }
-
-    .slide.active {
-      display: block;
-      opacity: 1;
-    }
-
-    .card {
-      background-color: #ffffff;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      padding: 30px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    h1 {
-      font-size: 2.2em;
-      color: var(--primary);
+    section {
+      padding: 60px 30px;
+      max-width: 1000px;
+      margin: auto;
     }
 
     h2 {
-      font-size: 1.6em;
       color: var(--primary);
+      font-size: 1.8em;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 30px;
+      margin-bottom: 40px;
     }
 
     ul {
@@ -99,17 +80,20 @@
       font-style: italic;
     }
 
-    .nav {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    .cta {
+      text-align: center;
+      padding: 40px 30px;
+      background-color: #ffffff;
+      border-top: 1px solid #ddd;
     }
 
-    button {
-      padding: 10px 20px;
+    .cta p {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+
+    .cta button {
+      padding: 12px 24px;
       font-size: 16px;
       background-color: var(--primary);
       color: white;
@@ -118,48 +102,38 @@
       cursor: pointer;
     }
 
-    button:hover {
+    .cta button:hover {
       background-color: var(--accent);
     }
 
-    .footer {
+    footer {
       text-align: center;
       font-size: 14px;
       color: #777;
-      margin-top: 40px;
+      padding: 20px;
     }
 
     @media (max-width: 768px) {
-      .slide {
-        padding: 100px 20px 40px;
+      header h1 {
+        font-size: 2em;
+      }
+      section {
+        padding: 40px 20px;
       }
       .card {
         padding: 20px;
-      }
-      button {
-        font-size: 14px;
-        padding: 8px 16px;
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="navbar">
-    <h2>EXEO Interview Presentation</h2>
-    <span class="counter" id="counter">Slide 1 of 5</span>
-  </div>
+  <header>
+    <h1>Strategic SEM & Scalable Value for B2B Growth</h1>
+    <p>Chester [Last Name] — Assistant Digital Marketing Manager Candidate</p>
+  </header>
 
-  <div class="slide active" id="slide1">
-    <div class="card">
-      <h1>Strategic SEM & Scalable Value for B2B Growth</h1>
-      <p>Chester [Last Name] — Assistant Digital Marketing Manager Candidate</p>
-      <p>This live HTML presentation outlines how I’d drive scalable SEM performance and unify EXEO’s global campaigns. It’s built to reflect the same principles I bring to digital execution: clarity, speed, and strategic depth.</p>
-      <div class="image-placeholder">[EXEO Logo or Hero Visual]</div>
-    </div>
-  </div>
-
-  <div class="slide" id="slide2">
+  <section>
     <div class="card">
       <h2>SEM Tool Comparison</h2>
       <ul>
@@ -170,9 +144,7 @@
       <p><strong>Recommendation:</strong> Start with Semrush to draft, SpyFu for budget-friendly PPC insights.</p>
       <div class="image-placeholder">[Tool Logos or Comparison Chart]</div>
     </div>
-  </div>
 
-  <div class="slide" id="slide3">
     <div class="card">
       <h2>Campaign Unification Framework</h2>
       <p>Unify messaging, reporting, and execution across global teams using:</p>
@@ -183,9 +155,7 @@
       </ul>
       <div class="image-placeholder">[Workflow Diagram or Dashboard Screenshot]</div>
     </div>
-  </div>
 
-  <div class="slide" id="slide4">
     <div class="card">
       <h2>Website Audit Highlights</h2>
       <p>Using external tools (Semrush, Hotjar, Clarity), I identified:</p>
@@ -196,51 +166,16 @@
       </ul>
       <div class="image-placeholder">[Audit Screenshot or Heatmap Visual]</div>
     </div>
+  </section>
+
+  <div class="cta">
+    <p>I bring strategic fluency, a builder mindset, and hands-on execution to elevate EXEO’s digital impact.</p>
+    <button>Download One-Pager</button>
   </div>
 
-  <div class="slide" id="slide5">
-    <div class="card">
-      <h2>Closing & Value Proposition</h2>
-      <p>I bring:</p>
-      <ul>
-        <li>Strategic fluency in SEM and automation</li>
-        <li>Builder mindset for scalable systems</li>
-        <li>Hands-on execution with rapid iteration</li>
-      </ul>
-      <p>Let’s elevate EXEO’s digital impact — together.</p>
-      <div class="footer">© Chester [Last Name] · Interview Presentation · 2025</div>
-    </div>
-  </div>
-
-  <div class="nav">
-    <button onclick="prevSlide()">◀ Prev</button>
-    <button onclick="nextSlide()">Next ▶</button>
-  </div>
-
-  <script>
-    const slides = document.querySelectorAll('.slide');
-    const counter = document.getElementById('counter');
-    let current = 0;
-
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === index);
-      });
-      counter.textContent = `Slide ${index + 1} of ${slides.length}`;
-    }
-
-    function nextSlide() {
-      current = (current + 1) % slides.length;
-      showSlide(current);
-    }
-
-    function prevSlide() {
-      current = (current - 1 + slides.length) % slides.length;
-      showSlide(current);
-    }
-
-    showSlide(current);
-  </script>
+  <footer>
+    © Chester [Last Name] · Interview Presentation · 2025
+  </footer>
 
 </body>
 </html>
