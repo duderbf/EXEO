@@ -5,64 +5,190 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>EXEO Interview Presentation</title>
   <style>
+    :root {
+      --primary: #0A1F44;
+      --accent: #0077cc;
+      --bg: #f4f6f8;
+      --text: #333;
+    }
+
     body, html {
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Segoe UI', 'Roboto', sans-serif;
+      background-color: var(--bg);
       overflow: hidden;
     }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: var(--primary);
+      color: white;
+      padding: 15px 30px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+
+    .navbar h2 {
+      margin: 0;
+      font-size: 20px;
+      letter-spacing: 0.5px;
+    }
+
     .slide {
       display: none;
       height: 100vh;
-      padding: 60px;
+      padding: 100px 60px 60px;
       box-sizing: border-box;
+      opacity: 0;
+      transition: opacity 0.6s ease;
     }
+
     .slide.active {
       display: block;
+      opacity: 1;
     }
+
+    .card {
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 30px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    h1, h2 {
+      color: var(--primary);
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
     .nav {
       position: fixed;
       bottom: 20px;
       right: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
+
     button {
       padding: 10px 20px;
-      margin: 0 5px;
       font-size: 16px;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: var(--accent);
+    }
+
+    .counter {
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    @media (max-width: 768px) {
+      .slide {
+        padding: 80px 30px 30px;
+      }
+      .card {
+        padding: 20px;
+      }
+      button {
+        font-size: 14px;
+        padding: 8px 16px;
+      }
     }
   </style>
 </head>
 <body>
 
+  <div class="navbar">
+    <h2>EXEO Interview Presentation</h2>
+  </div>
+
   <div class="slide active" id="slide1">
-    <h1>Strategic SEM & Scalable Value for B2B Growth</h1>
-    <p>Chester [Last Name] — Assistant Digital Marketing Manager Candidate</p>
+    <div class="card">
+      <h1>Strategic SEM & Scalable Value for B2B Growth</h1>
+      <p>Chester [Last Name] — Assistant Digital Marketing Manager Candidate</p>
+      <p>This live HTML presentation outlines how I’d drive scalable SEM performance and unify EXEO’s global campaigns. It’s built to reflect the same principles I bring to digital execution: clarity, speed, and strategic depth.</p>
+    </div>
   </div>
 
   <div class="slide" id="slide2">
-    <h2>SEM Tool Comparison</h2>
-    <ul>
-      <li><strong>Google Ads:</strong> Core SEM execution, CPC-based</li>
-      <li><strong>Semrush:</strong> Keyword & competitor insights ($129–$249/mo)</li>
-      <li><strong>SpyFu:</strong> Budget-friendly PPC intel ($39–$79/mo)</li>
-    </ul>
+    <div class="card">
+      <h2>SEM Tool Comparison</h2>
+      <ul>
+        <li><strong>Google Ads:</strong> Core SEM execution, CPC-based</li>
+        <li><strong>Semrush:</strong> Keyword & competitor insights ($129–$249/mo)</li>
+        <li><strong>SpyFu:</strong> Budget-friendly PPC intel ($39–$79/mo)</li>
+      </ul>
+      <p>Recommendation: Start with Semrush for depth, layer SpyFu for budget-friendly PPC insights.</p>
+    </div>
   </div>
 
-  <!-- Add more slides here -->
+  <div class="slide" id="slide3">
+    <div class="card">
+      <h2>Campaign Unification Framework</h2>
+      <p>Unify messaging, reporting, and execution across global teams using:</p>
+      <ul>
+        <li>HubSpot + Zapier for automation</li>
+        <li>Shared onboarding assets</li>
+        <li>Unified reporting dashboards</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="slide" id="slide4">
+    <div class="card">
+      <h2>Website Audit Highlights</h2>
+      <p>Using external tools (Semrush, Hotjar, Clarity), I identified:</p>
+      <ul>
+        <li>UX friction in navigation and CTA placement</li>
+        <li>SEO gaps in meta descriptions and page speed</li>
+        <li>Opportunities for campaign-specific landing pages</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="slide" id="slide5">
+    <div class="card">
+      <h2>Closing & Value Proposition</h2>
+      <p>I bring:</p>
+      <ul>
+        <li>Strategic fluency in SEM and automation</li>
+        <li>Builder mindset for scalable systems</li>
+        <li>Hands-on execution with rapid iteration</li>
+      </ul>
+      <p>Let’s elevate EXEO’s digital impact — together.</p>
+    </div>
+  </div>
 
   <div class="nav">
     <button onclick="prevSlide()">◀ Prev</button>
+    <span class="counter" id="counter">Slide 1 of 5</span>
     <button onclick="nextSlide()">Next ▶</button>
   </div>
 
   <script>
     const slides = document.querySelectorAll('.slide');
+    const counter = document.getElementById('counter');
     let current = 0;
 
     function showSlide(index) {
       slides.forEach((slide, i) => {
         slide.classList.toggle('active', i === index);
       });
+      counter.textContent = `Slide ${index + 1} of ${slides.length}`;
     }
 
     function nextSlide() {
@@ -74,6 +200,9 @@
       current = (current - 1 + slides.length) % slides.length;
       showSlide(current);
     }
+
+    // Initialize
+    showSlide(current);
   </script>
 
 </body>
