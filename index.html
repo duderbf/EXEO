@@ -1,15 +1,80 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>EXEO Interview Presentation</title>
   <style>
-    body { font-family: Arial; padding: 40px; }
-    h1 { color: #003366; }
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+    }
+    .slide {
+      display: none;
+      height: 100vh;
+      padding: 60px;
+      box-sizing: border-box;
+    }
+    .slide.active {
+      display: block;
+    }
+    .nav {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 0 5px;
+      font-size: 16px;
+    }
   </style>
 </head>
 <body>
-  <h1>Strategic SEM & Scalable Value for B2B Growth</h1>
-  <p>Chester — Assistant Digital Marketing Manager Candidate</p>
-  <p>This is a live HTML presentation hosted on GitHub Pages.</p>
+
+  <div class="slide active" id="slide1">
+    <h1>Strategic SEM & Scalable Value for B2B Growth</h1>
+    <p>Chester [Last Name] — Assistant Digital Marketing Manager Candidate</p>
+  </div>
+
+  <div class="slide" id="slide2">
+    <h2>SEM Tool Comparison</h2>
+    <ul>
+      <li><strong>Google Ads:</strong> Core SEM execution, CPC-based</li>
+      <li><strong>Semrush:</strong> Keyword & competitor insights ($129–$249/mo)</li>
+      <li><strong>SpyFu:</strong> Budget-friendly PPC intel ($39–$79/mo)</li>
+    </ul>
+  </div>
+
+  <!-- Add more slides here -->
+
+  <div class="nav">
+    <button onclick="prevSlide()">◀ Prev</button>
+    <button onclick="nextSlide()">Next ▶</button>
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    let current = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+    }
+
+    function nextSlide() {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    }
+
+    function prevSlide() {
+      current = (current - 1 + slides.length) % slides.length;
+      showSlide(current);
+    }
+  </script>
+
 </body>
 </html>
